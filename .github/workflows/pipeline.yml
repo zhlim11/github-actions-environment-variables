@@ -17,9 +17,6 @@ jobs:
     env:
       JAVA_VERSION: '21'
 
-
-
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK ${{env.JAVA_VERSION}}
@@ -31,4 +28,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Print name
-      run: echo "Hello $name"
+      run: echo "Hello $name. $BUILD2. Using Java Version $JAVA_VERSION."
+      env:
+        BUILD2: 'We are currently running the Build job'
